@@ -17,6 +17,14 @@
 - 爱好2，绘画
 - 爱好3，羽毛球
 
+- markdown
+## 🎨 我的作品
+
+这是我设计的一张海报：
+<p align="center">
+  <img src="poster.jpg" width="500" alt="我的海报">
+</p>
+
 ## 📬 联系我
 - GitHub: @Luvency(https://github.com/Luvency)
 - 邮箱：502026110037@smail.nju.edu.cn
