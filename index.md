@@ -23,7 +23,6 @@ Welcome to my page
 <P>这是我的海报作品：</p>
 <img src="poster.jpg" width="500" alt="海报">
 
-html
 <video width="500" controls>
   <source src="video-1.mp4" type="video/mp4">
 </video>
