@@ -1,7 +1,5 @@
 # 你好，我是 Luvency 👋
 
-![我的头像](avatar.jpg)
-
 欢迎来到我的个人主页
 
 ## 🎓 教育背景
@@ -17,12 +15,13 @@
 - 爱好2，绘画
 - 爱好3，羽毛球
 
-- markdown
-## 🎨 我的作品
-
-这是我设计的一张海报：
+html
 <p align="center">
-  <img src="poster.jpg" width="500" alt="我的海报">
+  <img src="avatar.jpg" width="150" alt="头像">
+  <br>
+  <i>这是我的海报作品：</i>
+  <br>
+  <img src="poster.jpg" width="500" alt="海报">
 </p>
 
 ## 📬 联系我
