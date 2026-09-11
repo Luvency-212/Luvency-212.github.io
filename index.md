@@ -1,7 +1,8 @@
-markdown
 # 你好，我是 Luvency 👋
-markdown
-![我的头像](avatar.jpg)
+html
+<p align="center">
+  <img src="avatar.jpg" width="250">
+</p>
 
 欢迎来到我的个人主页
 
@@ -14,10 +15,10 @@ markdown
 - **其他特长**：摄影
 
 ## 🎨 兴趣爱好
-- [爱好1，听音乐]
-- [爱好2，绘画]
-- [爱好3，羽毛球]
+- 爱好1，听音乐
+- 爱好2，绘画
+- 爱好3，羽毛球
 
 ## 📬 联系我
-- GitHub: [@Luvency](https://github.com/Luvency)
+- GitHub: @Luvency(https://github.com/Luvency)
 - 邮箱：502026110037@smail.nju.edu.cn
