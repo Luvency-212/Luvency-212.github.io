@@ -1,5 +1,7 @@
 markdown
 # 你好，我是 Luvency 👋
+markdown
+![我的头像](avatar.jpg)
 
 欢迎来到我的个人主页
 
