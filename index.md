@@ -1,5 +1,5 @@
 # 你好，我是 Luvency 👋
-<img src="avatar.jpg" width="300" alt="头像">
+<img src="avatar.jpg" width="150" alt="头像">
 
 欢迎来到我的个人主页
 
