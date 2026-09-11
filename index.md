@@ -1,5 +1,5 @@
 # 你好，我是 Luvency 👋
-html
+
 <p align="center">
   <img src="avatar.jpg" width="250">
 </p>
