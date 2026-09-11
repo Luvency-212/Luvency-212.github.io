@@ -1,5 +1,5 @@
 # 你好，我是 Luvency 👋
-<img src="avatar.jpg" width="150" alt="头像">
+<img src="avatar.jpg" width="300" alt="头像">
 欢迎来到我的个人主页
 
 ## 教育背景
@@ -14,11 +14,10 @@
 - 爱好1，听音乐
 - 爱好2，绘画
 - 爱好3，羽毛球
-
-  <br>
-  <i>这是我的海报作品：</i>
-  <br>
-  <img src="poster.jpg" width="500" alt="海报">
+<br>
+<i>这是我的海报作品：</i>
+<br>
+<img src="poster.jpg" width="500" alt="海报">
 
 ## 联系我
 - GitHub: @Luvency(https://github.com/Luvency)
