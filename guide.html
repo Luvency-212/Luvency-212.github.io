@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>更新指南 · Portfolio</title>
+<style>
+  :root {
+    --bg: #0b0b0b;
+    --bg-elevated: #101010;
+    --border: #1c1c1c;
+    --text: #e8e8e8;
+    --text-dim: #6f6f6f;
+    --text-faint: #3a3a3a;
+    --accent: #7692FF;
+    --sans: "MiSans", "Source Han Sans SC", "Noto Sans SC",
+            "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  a { color: var(--accent); text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(11,11,11,.85);
+    backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-inner {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 32px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .logo { font-size: 16px; font-weight: 600; }
+  .logo em { font-style: normal; color: var(--accent); font-weight: 400; }
+  .nav-menu { display: flex; gap: 28px; list-style: none; }
+  .nav-menu a {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    transition: color .3s;
+  }
+  .nav-menu a:hover { color: var(--text); text-decoration: none; }
+
+  .wrap {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 140px 32px 120px;
+  }
+
+  h1 {
+    font-size: clamp(28px, 5vw, 40px);
+    font-weight: 600;
+    letter-spacing: -.02em;
+    margin-bottom: 16px;
+  }
+
+  .lead {
+    font-size: 15px;
+    color: var(--text-dim);
+    margin-bottom: 56px;
+    max-width: 560px;
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin: 56px 0 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  h3 {
+    font-size: 15px;
+    font-weight: 600;
+    margin: 28px 0 8px;
+  }
+
+  p { margin-bottom: 14px; color: var(--text-dim); }
+
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 13px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: var(--accent);
+  }
+
+  pre {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    padding: 18px 20px;
+    border-radius: 8px;
+    overflow-x: auto;
+    margin: 14px 0 20px;
+  }
+  pre code {
+    background: none;
+    border: none;
+    padding: 0;
+    color: var(--text);
+    font-size: 13px;
+    line-height: 1.7;
+  }
+
+  ul { margin: 0 0 16px 20px; color: var(--text-dim); }
+  li { margin-bottom: 6px; }
+
+  .note {
+    background: var(--bg-elevated);
+    border-left: 2px solid var(--accent);
+    padding: 14px 18px;
+    margin: 20px 0;
+    font-size: 14px;
+    color: var(--text-dim);
+  }
+
+  @media (max-width: 640px) {
+    .nav-inner { padding: 0 20px; height: 54px; }
+    .nav-menu { gap: 18px; }
+    .wrap { padding: 110px 20px 80px; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">名字<em>·</em>Portfolio</a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html">Works</a></li>
+          <li><a href="guide.html">Guide</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <h1>如何更新这个网站</h1>
+    <p class="lead">
+      这份指南写给未来的你，也写给任何需要维护这个作品集的人。
+      跟着步骤走，不需要懂代码也能改内容。
+    </p>
+
+    <h2>1. 替换作品图片</h2>
+    <p>所有图片放在 <code>image/images/</code> 文件夹里。建议用纯英文命名，比如 <code>project-01.jpg</code>，避免中文和特殊符号。</p>
+    <p>替换时，每张卡片要改两个地方：</p>
+    <ul>
+      <li>卡片封面：<code>&lt;img src="image/images/project-01.jpg"&gt;</code></li>
+      <li>详情页大图：<code>data-cover="image/images/project-01.jpg"</code></li>
+    </ul>
+    <div class="note">
+      两个路径要写成一样的，否则卡片显示一张图，点开详情却是另一张。
+    </div>
+
+    <h2>2. 修改作品文字</h2>
+    <p>每张卡片上有标题、分类、年份、一句话描述。找到对应的 <code>&lt;a class="work-card"&gt;</code>，改里面的文字和 <code>data-*</code> 属性：</p>
+    <pre><code>data-title="项目名称"
+data-category="分类"
+data-year="2025"
+data-desc="一句话描述"
+data-body="&lt;p&gt;详情正文第一段&lt;/p&gt;&lt;p&gt;第二段&lt;/p&gt;"</code></pre>
+    <p>卡片上可见的文字（<code>&lt;h3&gt;</code> 和 <code>&lt;p&gt;</code>）也要同步改，不然列表和详情会对不上。</p>
+
+    <h2>3. 添加一个新作品</h2>
+    <p>复制一整张 <code>&lt;a class="work-card"&gt;...&lt;/a&gt;</code> 卡片，粘贴到作品网格里，然后：</p>
+    <ul>
+      <li>换图片路径</li>
+      <li>改标题、分类、年份、描述</li>
+      <li>改 <code>data-*</code> 属性</li>
+      <li>保存刷新，网格会自动排版</li>
+    </ul>
+
+    <h2>4. 修改颜色</h2>
+    <p>全站强调色（蓝色）定义在 <code>:root</code> 里的 <code>--accent</code>。改这一个值，标题、光标、悬停效果都会跟着变。</p>
+    <pre><code>:root {
+  --accent: #7692FF;
+}</code></pre>
+
+    <h2>5. 更新线上版本</h2>
+    <p>如果网站部署在 GitHub Pages：</p>
+    <ul>
+      <li>在本地改完文件</li>
+      <li>提交并推送到 GitHub 仓库</li>
+      <li>等一两分钟，线上自动更新</li>
+    </ul>
+
+    <div class="note">
+      改完记得强制刷新浏览器（Ctrl + F5 或 Cmd + Shift + R），避免看到旧缓存。
+    </div>
+
+  </main>
+
+</body>
+</html>
