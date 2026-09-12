@@ -4,6 +4,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Portfolio</title>
+
+<!-- 可选：想跨设备统一字体，取消下面这行注释，引入 Noto Sans SC（思源黑体的 Google Fonts 版本） -->
+<!--
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+-->
+
 <style>
   :root {
     --bg: #0b0b0b;
@@ -14,8 +22,14 @@
     --text-dim: #6f6f6f;
     --text-faint: #3a3a3a;
     --accent: #c8b89a;
-    --serif: "Songti SC", "Noto Serif SC", "Times New Roman", serif;
-    --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+
+    /* 字体栈：MiSans → 思源黑体 → Noto Sans SC → 苹方 → 微软雅黑 */
+    --sans: "MiSans", "Source Han Sans SC", "Source Han Sans CN",
+            "Noto Sans SC", "Noto Sans CJK SC",
+            "PingFang SC", "Hiragino Sans GB",
+            "Microsoft YaHei", -apple-system, BlinkMacSystemFont,
+            "Segoe UI", sans-serif;
+
     --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
@@ -28,8 +42,10 @@
     color: var(--text);
     font-family: var(--sans);
     font-size: 15px;
-    line-height: 1.6;
+    line-height: 1.7;
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
   }
 
   a { color: inherit; text-decoration: none; }
@@ -59,15 +75,16 @@
   }
 
   .logo {
-    font-family: var(--serif);
-    font-size: 17px;
-    letter-spacing: 0.04em;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
     white-space: nowrap;
   }
 
   .logo em {
     font-style: normal;
     color: var(--accent);
+    font-weight: 400;
   }
 
   .nav-menu {
@@ -79,7 +96,8 @@
 
   .nav-menu a {
     font-size: 12px;
-    letter-spacing: 0.12em;
+    font-weight: 500;
+    letter-spacing: 0.14em;
     text-transform: uppercase;
     color: var(--text-dim);
     transition: color 0.3s var(--ease);
@@ -96,31 +114,34 @@
 
   .hero-kicker {
     font-size: 11px;
-    letter-spacing: 0.2em;
+    font-weight: 500;
+    letter-spacing: 0.22em;
     text-transform: uppercase;
     color: var(--text-faint);
     margin-bottom: 40px;
   }
 
   .hero-title {
-    font-family: var(--serif);
     font-size: clamp(36px, 6vw, 64px);
-    font-weight: 400;
-    line-height: 1.15;
-    letter-spacing: -0.01em;
-    max-width: 720px;
+    font-weight: 600;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    max-width: 760px;
     margin-bottom: 36px;
   }
 
   .hero-title span {
     color: var(--accent);
+    font-weight: 300;
   }
 
   .hero-desc {
     max-width: 480px;
     font-size: 15px;
+    font-weight: 400;
     color: var(--text-dim);
-    line-height: 1.8;
+    line-height: 1.9;
+    letter-spacing: 0.01em;
   }
 
   /* ── 作品区 ─────────────────────────────── */
@@ -140,15 +161,15 @@
   }
 
   .works-header h2 {
-    font-family: var(--serif);
-    font-size: 22px;
-    font-weight: 400;
+    font-size: 20px;
+    font-weight: 600;
     letter-spacing: 0.02em;
   }
 
   .works-header span {
     font-size: 12px;
-    letter-spacing: 0.1em;
+    font-weight: 500;
+    letter-spacing: 0.14em;
     color: var(--text-faint);
   }
 
@@ -159,7 +180,6 @@
     gap: 48px 32px;
   }
 
-  /* 每张卡片作为整体作品条目 */
   .work-card {
     display: flex;
     flex-direction: column;
@@ -167,7 +187,6 @@
     position: relative;
   }
 
-  /* 让部分卡片在视觉上有错位节奏 */
   .work-card:nth-child(3n+2) {
     margin-top: 40px;
   }
@@ -203,7 +222,8 @@
     display: grid;
     place-items: center;
     font-size: 11px;
-    letter-spacing: 0.18em;
+    font-weight: 500;
+    letter-spacing: 0.2em;
     text-transform: uppercase;
     color: var(--text-faint);
     background:
@@ -214,13 +234,12 @@
       );
   }
 
-  /* 封面图（替换占位时启用） */
   .work-cover img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.8s var(--ease), opacity 0.6s var(--ease);
-    opacity: 0.7;
+    opacity: 0.75;
   }
 
   .work-card:hover .work-cover {
@@ -229,7 +248,7 @@
 
   .work-card:hover .work-cover img {
     transform: scale(1.04);
-    opacity: 0.9;
+    opacity: 0.95;
   }
 
   .work-card:hover .work-cover::after {
@@ -248,7 +267,8 @@
     align-items: center;
     gap: 12px;
     font-size: 11px;
-    letter-spacing: 0.1em;
+    font-weight: 500;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
     color: var(--text-faint);
   }
@@ -261,10 +281,9 @@
   }
 
   .work-title {
-    font-family: var(--serif);
     font-size: 18px;
-    font-weight: 400;
-    letter-spacing: 0.01em;
+    font-weight: 600;
+    letter-spacing: -0.01em;
     transition: color 0.3s var(--ease);
   }
 
@@ -274,9 +293,10 @@
 
   .work-desc {
     font-size: 13px;
+    font-weight: 400;
     color: var(--text-dim);
-    line-height: 1.7;
-    max-width: 90%;
+    line-height: 1.75;
+    max-width: 92%;
   }
 
   /* ── 页脚 ───────────────────────────────── */
@@ -297,6 +317,7 @@
 
   .footer-copy {
     font-size: 12px;
+    font-weight: 400;
     color: var(--text-faint);
     letter-spacing: 0.05em;
   }
@@ -309,7 +330,8 @@
 
   .footer-links a {
     font-size: 12px;
-    letter-spacing: 0.08em;
+    font-weight: 500;
+    letter-spacing: 0.1em;
     color: var(--text-dim);
     transition: color 0.3s var(--ease);
   }
@@ -329,10 +351,11 @@
   @media (max-width: 640px) {
     .nav-inner { padding: 0 20px; height: 54px; }
     .nav-menu { gap: 20px; }
-    .nav-menu a { font-size: 11px; }
+    .nav-menu a { font-size: 11px; letter-spacing: 0.1em; }
 
     .hero { padding: 120px 20px 80px; }
     .hero-title { font-size: clamp(28px, 8vw, 40px); }
+    .hero-title span { font-weight: 400; }
 
     .works { padding: 0 20px 80px; }
     .works-grid {
@@ -489,7 +512,7 @@
     <div class="works-header">
       <h2>About</h2>
     </div>
-    <p style="max-width:560px;color:var(--text-dim);font-size:14px;line-height:1.9;">
+    <p style="max-width:560px;color:var(--text-dim);font-size:14px;line-height:1.95;">
       这里放你的个人简介、经历、技能栈。内容可以之后慢慢补。
     </p>
   </section>
