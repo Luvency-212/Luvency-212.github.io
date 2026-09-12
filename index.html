@@ -13,7 +13,7 @@
     --text: #e8e8e8;
     --text-dim: #6f6f6f;
     --text-faint: #3a3a3a;
-    --accent: #c8b89a;
+    --accent: #7692FF;
 
     --sans: "MiSans", "Source Han Sans SC", "Source Han Sans CN",
             "Noto Sans SC", "Noto Sans CJK SC",
@@ -65,7 +65,7 @@
   .cursor-ring {
     width: 38px;
     height: 38px;
-    border: 1px solid rgba(200, 184, 154, 0.4);
+    border: 1px solid rgba(118, 146, 255, 0.4);
     transition: opacity 0.3s ease,
                 width 0.35s var(--ease),
                 height 0.35s var(--ease),
@@ -76,12 +76,12 @@
   body.cursor-ready .cursor-dot,
   body.cursor-ready .cursor-ring { opacity: 1; }
 
-  .cursor-ring.is-hover {
-    width: 72px;
-    height: 72px;
-    border-color: var(--accent);
-    background: rgba(200, 184, 154, 0.08);
-  }
+ .cursor-ring.is-hover {
+  width: 72px;
+  height: 72px;
+  border-color: var(--accent);
+  background: rgba(118, 146, 255, 0.1);
+}
 
   .cursor-ring.is-hover + .cursor-dot,
   .cursor-dot.is-hover {
