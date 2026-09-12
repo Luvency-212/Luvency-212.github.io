@@ -160,16 +160,15 @@
   <main class="wrap">
     <h1>如何更新这个网站</h1>
     <p class="lead">
-      这份指南写给未来的你，也写给任何需要维护这个作品集的人。
-      跟着步骤走，不需要懂代码也能改内容。
+      
     </p>
 
     <h2>1. 替换作品图片</h2>
-    <p>所有图片放在 <code>image/images/</code> 文件夹里。建议用纯英文命名，比如 <code>project-01.jpg</code>，避免中文和特殊符号。</p>
+    <p>所有图片放在 <code>images/</code> 文件夹里。建议用纯英文命名，比如 <code>project-01.jpg</code>，避免中文和特殊符号。</p>
     <p>替换时，每张卡片要改两个地方：</p>
     <ul>
-      <li>卡片封面：<code>&lt;img src="image/images/project-01.jpg"&gt;</code></li>
-      <li>详情页大图：<code>data-cover="image/images/project-01.jpg"</code></li>
+      <li>卡片封面：<code>&lt;img src="images/project-01.jpg"&gt;</code></li>
+      <li>详情页大图：<code>data-cover="images/project-01.jpg"</code></li>
     </ul>
     <div class="note">
       两个路径要写成一样的，否则卡片显示一张图，点开详情却是另一张。
@@ -208,7 +207,7 @@ data-body="&lt;p&gt;详情正文第一段&lt;/p&gt;&lt;p&gt;第二段&lt;/p&gt;"
     </ul>
 
     <div class="note">
-      改完记得强制刷新浏览器（Ctrl + F5 或 Cmd + Shift + R），避免看到旧缓存。
+      改完记得刷新浏览器（Ctrl + F5 或 Cmd + Shift + R）。
     </div>
 
   </main>
