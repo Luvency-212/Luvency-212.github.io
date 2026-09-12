@@ -3,406 +3,506 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>我的作品集</title>
+<title>Portfolio</title>
 <style>
-  :root{
-    --bg:        #0a0a0a;
-    --bg-soft:   #111111;
-    --border:    #1f1f1f;
-    --border-hi: #2e2e2e;
-    --text:      #ededed;
-    --text-dim:  #8a8a8a;
-    --accent:    #7c8cff;
-    --radius:    14px;
-    --max:       1200px;
+  :root {
+    --bg: #0b0b0b;
+    --bg-elevated: #101010;
+    --border: #1c1c1c;
+    --border-hover: #333;
+    --text: #e8e8e8;
+    --text-dim: #6f6f6f;
+    --text-faint: #3a3a3a;
+    --accent: #c8b89a;
+    --serif: "Songti SC", "Noto Serif SC", "Times New Roman", serif;
+    --sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Helvetica Neue", sans-serif;
+    --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
 
-  *{ box-sizing: border-box; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
 
-  html{ scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; }
 
-  body{
-    margin: 0;
+  body {
     background: var(--bg);
     color: var(--text);
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI",
-                 "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+    font-family: var(--sans);
+    font-size: 15px;
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
 
-  a{ color: inherit; }
-  img{ display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
 
-  /* ---------- 顶部导航 ---------- */
-  .nav{
-    position: sticky;
+  /* ── 顶部导航 ───────────────────────────── */
+  .nav {
+    position: fixed;
     top: 0;
-    z-index: 50;
-    background: rgba(10,10,10,.72);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(11, 11, 11, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
     border-bottom: 1px solid var(--border);
   }
 
-  .nav-inner{
-    max-width: var(--max);
+  .nav-inner {
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 0 24px;
-    height: 64px;
+    padding: 0 32px;
+    height: 60px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
   }
 
-  .logo{
-    font-size: 16px;
-    font-weight: 600;
-    letter-spacing: .02em;
-    text-decoration: none;
+  .logo {
+    font-family: var(--serif);
+    font-size: 17px;
+    letter-spacing: 0.04em;
     white-space: nowrap;
   }
-  .logo span{ color: var(--accent); }
 
-  .nav-links{
+  .logo em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .nav-menu {
     display: flex;
     align-items: center;
-    gap: 28px;
+    gap: 32px;
     list-style: none;
-    margin: 0;
-    padding: 0;
   }
 
-  .nav-links a{
-    font-size: 14px;
-    color: var(--text-dim);
-    text-decoration: none;
-    transition: color .2s ease;
-  }
-  .nav-links a:hover{ color: var(--text); }
-
-  /* ---------- 头部介绍 ---------- */
-  .hero{
-    max-width: var(--max);
-    margin: 0 auto;
-    padding: 96px 24px 72px;
-  }
-
-  .hero .eyebrow{
-    display: inline-block;
-    font-size: 13px;
-    color: var(--accent);
-    letter-spacing: .08em;
+  .nav-menu a {
+    font-size: 12px;
+    letter-spacing: 0.12em;
     text-transform: uppercase;
-    margin-bottom: 20px;
-  }
-
-  .hero h1{
-    margin: 0 0 20px;
-    font-size: clamp(32px, 6vw, 56px);
-    line-height: 1.15;
-    letter-spacing: -.02em;
-    font-weight: 600;
-  }
-
-  .hero p{
-    margin: 0;
-    max-width: 560px;
-    font-size: 16px;
     color: var(--text-dim);
+    transition: color 0.3s var(--ease);
   }
 
-  /* ---------- 作品区 ---------- */
-  .section{
-    max-width: var(--max);
+  .nav-menu a:hover { color: var(--text); }
+
+  /* ── 头部区域 ───────────────────────────── */
+  .hero {
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 0 24px 96px;
+    padding: 160px 32px 120px;
   }
 
-  .section-head{
+  .hero-kicker {
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    margin-bottom: 40px;
+  }
+
+  .hero-title {
+    font-family: var(--serif);
+    font-size: clamp(36px, 6vw, 64px);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    max-width: 720px;
+    margin-bottom: 36px;
+  }
+
+  .hero-title span {
+    color: var(--accent);
+  }
+
+  .hero-desc {
+    max-width: 480px;
+    font-size: 15px;
+    color: var(--text-dim);
+    line-height: 1.8;
+  }
+
+  /* ── 作品区 ─────────────────────────────── */
+  .works {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 32px 120px;
+  }
+
+  .works-header {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
-    gap: 16px;
-    padding-bottom: 20px;
-    margin-bottom: 32px;
+    padding-bottom: 24px;
+    margin-bottom: 48px;
     border-bottom: 1px solid var(--border);
   }
 
-  .section-head h2{
-    margin: 0;
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: -.01em;
+  .works-header h2 {
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
   }
 
-  .section-head .count{
-    font-size: 13px;
-    color: var(--text-dim);
+  .works-header span {
+    font-size: 12px;
+    letter-spacing: 0.1em;
+    color: var(--text-faint);
   }
 
-  /* 卡片网格 */
-  .grid{
+  /* 作品网格 — 带微妙错位 */
+  .works-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 24px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 48px 32px;
   }
 
-  .card{
+  /* 每张卡片作为整体作品条目 */
+  .work-card {
     display: flex;
     flex-direction: column;
-    background: var(--bg-soft);
-    border: 1px solid var(--border);
-    border-radius: var(--radius);
-    overflow: hidden;
-    text-decoration: none;
     cursor: pointer;
-    transition: transform .25s ease,
-                border-color .25s ease,
-                box-shadow .25s ease;
-  }
-
-  .card:hover{
-    transform: translateY(-4px);
-    border-color: var(--border-hi);
-    box-shadow: 0 14px 36px rgba(0,0,0,.55);
-  }
-
-  /* 封面占位块 */
-  .thumb{
     position: relative;
-    aspect-ratio: 16 / 10;
+  }
+
+  /* 让部分卡片在视觉上有错位节奏 */
+  .work-card:nth-child(3n+2) {
+    margin-top: 40px;
+  }
+
+  /* 封面区域 */
+  .work-cover {
+    position: relative;
+    aspect-ratio: 4 / 3;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    margin-bottom: 20px;
+    transition: border-color 0.4s var(--ease);
+  }
+
+  .work-cover::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      180deg,
+      transparent 60%,
+      rgba(11, 11, 11, 0.4) 100%
+    );
+    opacity: 0;
+    transition: opacity 0.4s var(--ease);
+    pointer-events: none;
+  }
+
+  .work-cover-placeholder {
+    position: absolute;
+    inset: 0;
     display: grid;
     place-items: center;
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--text-faint);
     background:
       repeating-linear-gradient(
-        45deg,
-        #141414 0 10px,
-        #101010 10px 20px
+        -45deg,
+        #0f0f0f 0 8px,
+        #0c0c0c 8px 16px
       );
-    border-bottom: 1px solid var(--border);
-    color: #3d3d3d;
-    font-size: 12px;
-    letter-spacing: .1em;
-    text-transform: uppercase;
-    overflow: hidden;
   }
 
-  /* 封面换成图片时用这个： */
-  /*
-  .thumb img{
-    width: 100%; height: 100%;
+  /* 封面图（替换占位时启用） */
+  .work-cover img {
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    transition: transform .4s ease;
+    transition: transform 0.8s var(--ease), opacity 0.6s var(--ease);
+    opacity: 0.7;
   }
-  .card:hover .thumb img{ transform: scale(1.04); }
-  */
 
-  .card-body{
-    padding: 20px;
+  .work-card:hover .work-cover {
+    border-color: var(--border-hover);
+  }
+
+  .work-card:hover .work-cover img {
+    transform: scale(1.04);
+    opacity: 0.9;
+  }
+
+  .work-card:hover .work-cover::after {
+    opacity: 1;
+  }
+
+  /* 卡片文字区 */
+  .work-info {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    flex: 1;
+    gap: 8px;
   }
 
-  .card-meta{
+  .work-meta {
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 12px;
-    font-size: 12px;
+    font-size: 11px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+  }
+
+  .work-meta .dot {
+    width: 3px;
+    height: 3px;
+    border-radius: 50%;
+    background: var(--text-faint);
+  }
+
+  .work-title {
+    font-family: var(--serif);
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    transition: color 0.3s var(--ease);
+  }
+
+  .work-card:hover .work-title {
+    color: var(--accent);
+  }
+
+  .work-desc {
+    font-size: 13px;
     color: var(--text-dim);
+    line-height: 1.7;
+    max-width: 90%;
   }
 
-  .tag{
-    padding: 3px 10px;
-    border: 1px solid var(--border-hi);
-    border-radius: 999px;
-    color: var(--text-dim);
-  }
-
-  .card h3{
-    margin: 0;
-    font-size: 17px;
-    font-weight: 600;
-    letter-spacing: -.01em;
-  }
-
-  .card p{
-    margin: 0;
-    font-size: 14px;
-    color: var(--text-dim);
-  }
-
-  /* ---------- 页脚 ---------- */
-  .footer{
+  /* ── 页脚 ───────────────────────────────── */
+  .footer {
     border-top: 1px solid var(--border);
   }
 
-  .footer-inner{
-    max-width: var(--max);
+  .footer-inner {
+    max-width: 1280px;
     margin: 0 auto;
-    padding: 40px 24px;
+    padding: 48px 32px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 16px;
     flex-wrap: wrap;
-    font-size: 13px;
-    color: var(--text-dim);
+    gap: 24px;
   }
 
-  .footer a{
-    color: var(--text-dim);
-    text-decoration: none;
-    transition: color .2s ease;
+  .footer-copy {
+    font-size: 12px;
+    color: var(--text-faint);
+    letter-spacing: 0.05em;
   }
-  .footer a:hover{ color: var(--text); }
 
-  /* ---------- 小屏适配 ---------- */
-  @media (max-width: 640px){
-    .nav-inner{ height: 56px; padding: 0 18px; }
-    .nav-links{ gap: 18px; }
-    .nav-links a{ font-size: 13px; }
-    .hero{ padding: 64px 18px 48px; }
-    .section{ padding: 0 18px 64px; }
-    .grid{ gap: 18px; }
-    .footer-inner{ padding: 32px 18px; }
+  .footer-links {
+    display: flex;
+    gap: 28px;
+    list-style: none;
+  }
+
+  .footer-links a {
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--text-dim);
+    transition: color 0.3s var(--ease);
+  }
+
+  .footer-links a:hover { color: var(--accent); }
+
+  /* ── 响应式 ─────────────────────────────── */
+  @media (max-width: 900px) {
+    .works-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 36px 24px;
+    }
+    .work-card:nth-child(3n+2) { margin-top: 0; }
+    .work-card:nth-child(2n) { margin-top: 32px; }
+  }
+
+  @media (max-width: 640px) {
+    .nav-inner { padding: 0 20px; height: 54px; }
+    .nav-menu { gap: 20px; }
+    .nav-menu a { font-size: 11px; }
+
+    .hero { padding: 120px 20px 80px; }
+    .hero-title { font-size: clamp(28px, 8vw, 40px); }
+
+    .works { padding: 0 20px 80px; }
+    .works-grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+    .work-card:nth-child(2n) { margin-top: 0; }
+
+    .footer-inner { padding: 36px 20px; }
   }
 </style>
 </head>
 <body>
 
-  <!-- ========== 导航 ========== -->
+  <!-- 导航 -->
   <header class="nav">
     <div class="nav-inner">
-      <a href="#" class="logo">你的名字<span>.</span></a>
+      <a href="#" class="logo">名字<em>·</em>Portfolio</a>
       <nav>
-        <ul class="nav-links">
-          <li><a href="#works">作品</a></li>
-          <li><a href="#about">关于</a></li>
-          <li><a href="#contact">联系</a></li>
+        <ul class="nav-menu">
+          <li><a href="#works">Works</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </div>
   </header>
 
-  <!-- ========== 头部介绍 ========== -->
+  <!-- 头部 -->
   <section class="hero">
-    <span class="eyebrow">Portfolio</span>
-    <h1>你好，我是 ___<br>做设计与开发。</h1>
-    <p>这里是一句话自我介绍：你专注的领域、擅长的技能，以及你想通过作品传达的东西。</p>
+    <p class="hero-kicker">Selected Works 2023 — 2025</p>
+    <h1 class="hero-title">
+      你好，我是 <span>___</span><br>
+      做设计与开发。
+    </h1>
+    <p class="hero-desc">
+      这里是一句话自我介绍。你专注的领域、擅长的技能，以及你想通过作品传达的东西。
+    </p>
   </section>
 
-  <!-- ========== 作品列表 ========== -->
-  <section class="section" id="works">
-    <div class="section-head">
-      <h2>作品</h2>
-      <span class="count">6 个项目</span>
+  <!-- 作品列表 -->
+  <section class="works" id="works">
+    <div class="works-header">
+      <h2>Projects</h2>
+      <span>06 Items</span>
     </div>
 
-    <div class="grid">
+    <div class="works-grid">
 
-      <!-- 卡片 1 -->
-      <a href="#" class="card">
-        <div class="thumb">封面占位</div>
-        <div class="card-body">
-          <div class="card-meta">
-            <span class="tag">分类</span>
+      <!-- 01 -->
+      <a href="#" class="work-card">
+        <div class="work-cover">
+          <div class="work-cover-placeholder">Cover</div>
+          <!-- 替换封面时，删掉上面的 div，启用下面这行：
+          <img src="your-image.jpg" alt="项目封面">
+          -->
+        </div>
+        <div class="work-info">
+          <div class="work-meta">
+            <span>Branding</span>
+            <span class="dot"></span>
             <span>2025</span>
           </div>
-          <h3>项目名称一</h3>
-          <p>一句话描述这个项目做了什么、解决了什么问题。</p>
+          <h3 class="work-title">项目名称一</h3>
+          <p class="work-desc">一句话描述这个项目做了什么、解决了什么问题。</p>
         </div>
       </a>
 
-      <!-- 卡片 2 -->
-      <a href="#" class="card">
-        <div class="thumb">封面占位</div>
-        <div class="card-body">
-          <div class="card-meta">
-            <span class="tag">分类</span>
+      <!-- 02 -->
+      <a href="#" class="work-card">
+        <div class="work-cover">
+          <div class="work-cover-placeholder">Cover</div>
+        </div>
+        <div class="work-info">
+          <div class="work-meta">
+            <span>Web Design</span>
+            <span class="dot"></span>
             <span>2025</span>
           </div>
-          <h3>项目名称二</h3>
-          <p>一句话描述这个项目做了什么、解决了什么问题。</p>
+          <h3 class="work-title">项目名称二</h3>
+          <p class="work-desc">一句话描述这个项目做了什么、解决了什么问题。</p>
         </div>
       </a>
 
-      <!-- 卡片 3 -->
-      <a href="#" class="card">
-        <div class="thumb">封面占位</div>
-        <div class="card-body">
-          <div class="card-meta">
-            <span class="tag">分类</span>
+      <!-- 03 -->
+      <a href="#" class="work-card">
+        <div class="work-cover">
+          <div class="work-cover-placeholder">Cover</div>
+        </div>
+        <div class="work-info">
+          <div class="work-meta">
+            <span>Art Direction</span>
+            <span class="dot"></span>
             <span>2024</span>
           </div>
-          <h3>项目名称三</h3>
-          <p>一句话描述这个项目做了什么、解决了什么问题。</p>
+          <h3 class="work-title">项目名称三</h3>
+          <p class="work-desc">一句话描述这个项目做了什么、解决了什么问题。</p>
         </div>
       </a>
 
-      <!-- 卡片 4 -->
-      <a href="#" class="card">
-        <div class="thumb">封面占位</div>
-        <div class="card-body">
-          <div class="card-meta">
-            <span class="tag">分类</span>
+      <!-- 04 -->
+      <a href="#" class="work-card">
+        <div class="work-cover">
+          <div class="work-cover-placeholder">Cover</div>
+        </div>
+        <div class="work-info">
+          <div class="work-meta">
+            <span>Motion</span>
+            <span class="dot"></span>
             <span>2024</span>
           </div>
-          <h3>项目名称四</h3>
-          <p>一句话描述这个项目做了什么、解决了什么问题。</p>
+          <h3 class="work-title">项目名称四</h3>
+          <p class="work-desc">一句话描述这个项目做了什么、解决了什么问题。</p>
         </div>
       </a>
 
-      <!-- 卡片 5 -->
-      <a href="#" class="card">
-        <div class="thumb">封面占位</div>
-        <div class="card-body">
-          <div class="card-meta">
-            <span class="tag">分类</span>
+      <!-- 05 -->
+      <a href="#" class="work-card">
+        <div class="work-cover">
+          <div class="work-cover-placeholder">Cover</div>
+        </div>
+        <div class="work-info">
+          <div class="work-meta">
+            <span>Editorial</span>
+            <span class="dot"></span>
             <span>2024</span>
           </div>
-          <h3>项目名称五</h3>
-          <p>一句话描述这个项目做了什么、解决了什么问题。</p>
+          <h3 class="work-title">项目名称五</h3>
+          <p class="work-desc">一句话描述这个项目做了什么、解决了什么问题。</p>
         </div>
       </a>
 
-      <!-- 卡片 6 -->
-      <a href="#" class="card">
-        <div class="thumb">封面占位</div>
-        <div class="card-body">
-          <div class="card-meta">
-            <span class="tag">分类</span>
+      <!-- 06 -->
+      <a href="#" class="work-card">
+        <div class="work-cover">
+          <div class="work-cover-placeholder">Cover</div>
+        </div>
+        <div class="work-info">
+          <div class="work-meta">
+            <span>Photography</span>
+            <span class="dot"></span>
             <span>2023</span>
           </div>
-          <h3>项目名称六</h3>
-          <p>一句话描述这个项目做了什么、解决了什么问题。</p>
+          <h3 class="work-title">项目名称六</h3>
+          <p class="work-desc">一句话描述这个项目做了什么、解决了什么问题。</p>
         </div>
       </a>
 
     </div>
   </section>
 
-  <!-- ========== 关于 / 联系（可先留空） ========== -->
-  <section class="section" id="about">
-    <div class="section-head">
-      <h2>关于</h2>
+  <!-- 关于 -->
+  <section class="works" id="about" style="padding-top:0;">
+    <div class="works-header">
+      <h2>About</h2>
     </div>
-    <p style="max-width:640px;color:var(--text-dim);margin:0;">
+    <p style="max-width:560px;color:var(--text-dim);font-size:14px;line-height:1.9;">
       这里放你的个人简介、经历、技能栈。内容可以之后慢慢补。
     </p>
   </section>
 
-  <!-- ========== 页脚 ========== -->
+  <!-- 页脚 -->
   <footer class="footer" id="contact">
     <div class="footer-inner">
-      <span>© 2025 你的名字</span>
-      <span>
-        <a href="mailto:hello@example.com">hello@example.com</a>
-      </span>
+      <span class="footer-copy">© 2025 你的名字</span>
+      <ul class="footer-links">
+        <li><a href="mailto:hello@example.com">Email</a></li>
+        <li><a href="#">Instagram</a></li>
+        <li><a href="#">WeChat</a></li>
+      </ul>
     </div>
   </footer>
 
