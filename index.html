@@ -966,9 +966,17 @@
 
   // 卡片点击
   document.querySelectorAll('.work-card').forEach(function (card) {
-    card.addEventListener('click', function (e) {
-      e.preventDefault();
-      openOverlay(card);
+  card.addEventListener('click', function (e) {
+    const href = card.getAttribute('href');
+
+    // 如果 href 不是 "#"，说明这是一张跳转卡片，交给浏览器正常跳转
+    if (href && href !== '#') {
+      return;
+    }
+
+    // 否则打开详情层
+    e.preventDefault();
+    openOverlay(card);
     });
   });
 
