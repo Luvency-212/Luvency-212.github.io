@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>科研经历 · Portfolio</title>
+<style>
+  :root {
+    --bg: #0b0b0b;
+    --bg-elevated: #101010;
+    --border: #1c1c1c;
+    --border-hover: #333;
+    --text: #e8e8e8;
+    --text-dim: #6f6f6f;
+    --text-faint: #3a3a3a;
+    --accent: #7692FF;
+
+    --sans: "MiSans", "Source Han Sans SC", "Source Han Sans CN",
+            "Noto Sans SC", "Noto Sans CJK SC",
+            "PingFang SC", "Hiragino Sans GB",
+            "Microsoft YaHei", -apple-system, BlinkMacSystemFont,
+            "Segoe UI", sans-serif;
+
+    --ease: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    font-size: 15px;
+    line-height: 1.8;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img { display: block; max-width: 100%; }
+
+  /* ── 导航 ───────────────────────────── */
+  .nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    background: rgba(11, 11, 11, 0.85);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 32px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .logo {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    white-space: nowrap;
+  }
+  .logo em { font-style: normal; color: var(--accent); font-weight: 400; }
+
+  .nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-menu a {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    transition: color 0.3s var(--ease);
+  }
+  .nav-menu a:hover { color: var(--text); }
+  .nav-menu a.is-active { color: var(--accent); }
+
+  /* ── 主体 ───────────────────────────── */
+  .wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 140px 32px 120px;
+  }
+
+  /* ── 顶部：头像 + 基本信息 ─────────── */
+  .profile {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    padding-bottom: 48px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .profile-avatar {
+    flex-shrink: 0;
+    width: 180px;
+    height: 180px;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+
+  .profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .profile-avatar .placeholder {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-items: center;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    background: repeating-linear-gradient(-45deg, #0f0f0f 0 8px, #0c0c0c 8px 16px);
+  }
+
+  .profile-info {
+    flex: 1;
+    min-width: 0;
+    padding-top: 4px;
+  }
+
+  .profile-name {
+    font-size: 32px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+    margin-bottom: 8px;
+  }
+
+  .profile-role {
+    font-size: 14px;
+    color: var(--accent);
+    letter-spacing: 0.02em;
+    margin-bottom: 28px;
+  }
+
+  .profile-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    list-style: none;
+  }
+
+  .profile-contact li {
+    display: flex;
+    gap: 16px;
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.7;
+  }
+
+  .profile-contact .label {
+    flex-shrink: 0;
+    width: 72px;
+    color: var(--text-faint);
+    font-size: 13px;
+    letter-spacing: 0.06em;
+    padding-top: 1px;
+  }
+
+  .profile-contact a {
+    color: var(--text-dim);
+    transition: color 0.3s var(--ease);
+  }
+  .profile-contact a:hover { color: var(--accent); }
+
+  /* ── 内容区块 ───────────────────────── */
+  .block {
+    padding: 48px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .block:last-child { border-bottom: none; }
+
+  .block-title {
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    margin-bottom: 24px;
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .block-title::before {
+    content: "";
+    width: 3px;
+    height: 14px;
+    background: var(--accent);
+    border-radius: 2px;
+  }
+
+  .block p {
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.95;
+    margin-bottom: 16px;
+  }
+
+  .block p:last-child { margin-bottom: 0; }
+
+  .block strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  /* ── 研究方向标签 ───────────────────── */
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin-top: 4px;
+  }
+
+  .tags li {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    padding: 5px 14px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    color: var(--text-dim);
+    transition: border-color 0.3s var(--ease), color 0.3s var(--ease);
+  }
+
+  .tags li:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* ── 时间线条目（科研经历/教育经历）─ */
+  .entry {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 40px;
+    padding: 28px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .entry:first-child { padding-top: 0; }
+  .entry:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+
+  .entry-time {
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    color: var(--text-faint);
+    padding-top: 3px;
+  }
+
+  .entry-body { min-width: 0; }
+
+  .entry-title {
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.5;
+    margin-bottom: 6px;
+  }
+
+  .entry-sub {
+    font-size: 13px;
+    color: var(--accent);
+    margin-bottom: 12px;
+    letter-spacing: 0.02em;
+  }
+
+  .entry-desc {
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.9;
+  }
+
+  /* ── 课程列表 ───────────────────────── */
+  .course-list {
+    list-style: none;
+    padding: 0;
+    counter-reset: course;
+  }
+
+  .course-list li {
+    position: relative;
+    padding: 10px 0 10px 40px;
+    font-size: 14px;
+    color: var(--text-dim);
+    line-height: 1.7;
+    counter-increment: course;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .course-list li:last-child { border-bottom: none; }
+
+  .course-list li::before {
+    content: counter(course, decimal-leading-zero);
+    position: absolute;
+    left: 0;
+    top: 10px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.06em;
+    color: var(--text-faint);
+  }
+
+  .course-list .course-name { color: var(--text); font-weight: 500; }
+  .course-list .course-type { color: var(--text-faint); font-size: 13px; }
+
+  /* ── 页脚 ───────────────────────────── */
+  .footer {
+    border-top: 1px solid var(--border);
+    margin-top: 40px;
+  }
+
+  .footer-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 40px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  .footer-copy {
+    font-size: 12px;
+    color: var(--text-faint);
+    letter-spacing: 0.05em;
+  }
+
+  .back-link {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    transition: color 0.3s var(--ease);
+  }
+
+  .back-link:hover { color: var(--accent); }
+  .back-link svg {
+    width: 12px;
+    height: 12px;
+    stroke: currentColor;
+    stroke-width: 1.5;
+    fill: none;
+  }
+
+  /* ── 响应式 ─────────────────────────── */
+  @media (max-width: 720px) {
+    .nav-inner { padding: 0 20px; height: 54px; }
+    .nav-menu { gap: 20px; }
+    .nav-menu a { font-size: 11px; letter-spacing: 0.1em; }
+
+    .wrap { padding: 110px 20px 80px; }
+
+    .profile {
+      flex-direction: column;
+      gap: 24px;
+      padding-bottom: 36px;
+    }
+    .profile-avatar { width: 120px; height: 120px; }
+    .profile-name { font-size: 26px; }
+
+    .block { padding: 36px 0; }
+
+    .entry {
+      grid-template-columns: 1fr;
+      gap: 8px;
+      padding: 24px 0;
+    }
+    .entry-time { padding-top: 0; }
+
+    .footer-inner { padding: 32px 20px; }
+  }
+</style>
+</head>
+<body>
+
+  <!-- 导航 -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a href="index.html" class="logo">SHI YUFAN<em>·</em>Portfolio</a>
+      <nav>
+        <ul class="nav-menu">
+          <li><a href="index.html#works">Works</a></li>
+          <li><a href="research.html" class="is-active">Research</a></li>
+          <li><a href="index.html#about">About</a></li>
+          <li><a href="index.html#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+
+    <!-- 顶部：头像 + 基本信息 -->
+    <section class="profile">
+      <div class="profile-avatar">
+        <img src="images/avatar.jpg" alt="头像" decoding="async">
+        <!-- 没头像时删掉上面那行，换成这行：
+        <div class="placeholder">Avatar</div>
+        -->
+      </div>
+
+      <div class="profile-info">
+        <h1 class="profile-name">史羽梵</h1>
+        <p class="profile-role">南京大学新闻传播学院 · 传播学学硕在读</p>
+
+        <ul class="profile-contact">
+          <li>
+            <span class="label">通讯地址</span>
+            <span>南京市栖霞区仙林大道 163 号 南京大学新闻传播学院</span>
+          </li>
+          <li>
+            <span class="label">邮编</span>
+            <span>210023</span>
+          </li>
+          <li>
+            <span class="label">E-mail</span>
+            <a href="mailto:你的邮箱@example.com">你的邮箱@example.com</a>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 个人简介 -->
+    <section class="block">
+      <h2 class="block-title">个人简介</h2>
+      <p>
+        史羽梵，南京大学新闻传播学院传播学专业硕士研究生在读。研究方向聚焦于计算传播、内容分析与视觉传播，关注数字媒介环境下信息的生产、流通与接受机制。
+      </p>
+      <p>
+        本科阶段开始接触量化研究方法，参与过问卷调查、内容分析与数据可视化相关的课题。目前正在探索自然语言处理与传播学研究的交叉地带，尝试用计算方法回应传统传播学问题。
+      </p>
+    </section>
+
+    <!-- 研究方向 -->
+    <section class="block">
+      <h2 class="block-title">研究方向</h2>
+      <ul class="tags">
+        <li>计算传播</li>
+        <li>内容分析</li>
+        <li>视觉传播</li>
+        <li>量化研究</li>
+        <li>自然语言处理</li>
+        <li>数据可视化</li>
+      </ul>
+    </section>
+
+    <!-- 教育经历 -->
+    <section class="block">
+      <h2 class="block-title">教育经历</h2>
+
+      <div class="entry">
+        <div class="entry-time">2024 — 至今</div>
+        <div class="entry-body">
+          <h3 class="entry-title">南京大学 · 新闻传播学院</h3>
+          <p class="entry-sub">传播学 · 学术硕士</p>
+          <p class="entry-desc">研究方向：计算传播、内容分析。导师：___。</p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-time">2020 — 2024</div>
+        <div class="entry-body">
+          <h3 class="entry-title">___ 大学 · ___ 学院</h3>
+          <p class="entry-sub">___ 专业 · 文学学士</p>
+          <p class="entry-desc">主修课程：___。毕业论文：___。</p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 科研经历 -->
+    <section class="block">
+      <h2 class="block-title">科研经历</h2>
+
+      <div class="entry">
+        <div class="entry-time">2024 — 至今</div>
+        <div class="entry-body">
+          <h3 class="entry-title">课题名称一</h3>
+          <p class="entry-sub">课题主持人 · 南京大学</p>
+          <p class="entry-desc">
+            研究问题、方法路径、你的具体贡献。比如：负责数据采集与清洗，使用 Python 爬取 ___ 条样本，完成内容分析编码与统计检验。
+          </p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-time">2023 — 2024</div>
+        <div class="entry-body">
+          <h3 class="entry-title">课题名称二</h3>
+          <p class="entry-sub">研究助理 · ___ 实验室</p>
+          <p class="entry-desc">
+            参与的项目，做了什么，产出是什么。比如：协助完成深度访谈 20 人次，整理访谈文本并完成主题编码。
+          </p>
+        </div>
+      </div>
+
+      <div class="entry">
+        <div class="entry-time">2022 — 2023</div>
+        <div class="entry-body">
+          <h3 class="entry-title">课题名称三</h3>
+          <p class="entry-sub">参与 · ___ 大学</p>
+          <p class="entry-desc">
+            简短描述你在项目中的角色和产出。
+          </p>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- 学术成果（可选，没有就整段删掉） -->
+    <section class="block">
+      <h2 class="block-title">学术成果</h2>
+      <p>
+        [1] 作者. 论文标题[J]. 期刊名, 2024(01): 1-10.
+      </p>
+      <p>
+        [2] 作者. 会议论文标题[C]. 会议名, 2024.
+      </p>
+    </section>
+
+    <!-- 开设课程（如果只是学生，可以删掉这一整段） -->
+    <section class="block">
+      <h2 class="block-title">开设主要课程</h2>
+      <ol class="course-list">
+        <li>
+          <span class="course-name">《课程名称一》</span>
+          <span class="course-type">（全校通识课）</span>
+        </li>
+        <li>
+          <span class="course-name">《课程名称二》</span>
+          <span class="course-type">（硕士生课程）</span>
+        </li>
+        <li>
+          <span class="course-name">《课程名称三》</span>
+          <span class="course-type">（博士生课程）</span>
+        </li>
+      </ol>
+    </section>
+
+  </main>
+
+  <!-- 页脚 -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-copy">© 2025 史羽梵</span>
+      <a href="index.html" class="back-link">
+        <svg viewBox="0 0 12 12" aria-hidden="true">
+          <line x1="10" y1="6" x2="2" y2="6"/>
+          <polyline points="5,3 2,6 5,9"/>
+        </svg>
+        返回首页
+      </a>
+    </div>
+  </footer>
+
+</body>
+</html>
